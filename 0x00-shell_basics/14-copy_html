@@ -1,0 +1,8 @@
+#!/bin/bash
+for file in *.html; do
+  if [[ -f ../$file ]] && [[ ../$file -nt $file ]]; then
+    echo "$file is older than its parent version"
+  else
+    cp "$file" ../
+  fi
+done
